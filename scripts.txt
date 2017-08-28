@@ -1,0 +1,5 @@
+https://github.com/BIU-NLP/hyperwords.git
+
+scripts/pairs2counts.sh w2.sub/pairs > w2.sub/counts
+python hyperwords/counts2vocab.py w2.sub/counts
+word2vecf/word2vecf -train w2.sub/pairs -pow 0.75 -cvocab w2.sub/counts.contexts.vocab -wvocab w2.sub/counts.words.vocab -dumpcv w2.sub/sgns.contexts -output w2.sub/sgns.words -threads 10 -negative 15 -size 500
